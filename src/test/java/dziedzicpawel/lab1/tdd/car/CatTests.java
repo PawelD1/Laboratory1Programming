@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.math.BigDecimal;
-
 @SpringBootTest
 public class CatTests {
 
@@ -52,7 +50,13 @@ public class CatTests {
         Assertions.assertTrue(isPossible3);
         Assertions.assertEquals(3.8,car.calculateAmountOfFuelAfterDriving(distance3), 13-3);
         Assertions.assertEquals(101.2, car.calculateNewDailyOdometer(distance3), 1e-3);
+    }
+    @Test
+    public void shouldResettingOdometer() {
+        Car car = new Car("red", "Skoda Octavia", 5.4, 70);
 
+        boolean resetIsSuccessful= car.resetOdometer(car.getOdometer());
 
+        Assertions.assertTrue(resetIsSuccessful);
     }
 }
