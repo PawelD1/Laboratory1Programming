@@ -6,6 +6,9 @@ public class Car {
     private String make;
     private double fuelConsumption;
     private int tankCapacity;
+    private double fuelLevel;
+    private double odometer;
+    private double dailyOdometer;
 
     public Car(String color, String make, double fuelConsumption, int tankCapacity) {
         this.color=color;
