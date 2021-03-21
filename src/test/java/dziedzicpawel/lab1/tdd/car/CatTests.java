@@ -29,4 +29,18 @@ public class CatTests {
         Assertions.assertFalse(extraLitresOfFuel2);
         Assertions.assertTrue(extraLitresOfFuel3);
     }
+    @Test
+    public void shouldHaveDrive() {
+        Car car = new Car("red", "Skoda Octavia", 5.4, 70);
+
+        boolean isPossible = car.drive(100);
+        boolean isPossible2= car.drive(100000);
+
+        Assertions.assertTrue(isPossible);
+        Assertions.assertEquals(901.2, car.getDailyOdometer());
+        Assertions.assertEquals(100100.9, car.getOdometer());
+        Assertions.assertTrue(car.getFuelLevel()>=0);
+        Assertions.assertFalse(isPossible2);
+
+    }
 }
