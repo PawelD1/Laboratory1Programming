@@ -2,13 +2,13 @@ package dziedzicpawel.lab1.tdd.car;
 
 public class Car {
 
-    private String color;
-    private String make;
-    private double fuelConsumption;
-    private int tankCapacity;
-    private double fuelLevel=20.0;
-    private double odometer=100000.9;
-    private double dailyOdometer= 801.2;
+    private final String color;
+    private final String make;
+    private final double fuelConsumption;
+    private final int tankCapacity;
+    private final double fuelLevel=20.0;
+    private final double odometer=100000.9;
+    private final double dailyOdometer= 801.2;
 
     public Car(String color, String make, double fuelConsumption, int tankCapacity) {
         this.color=color;
@@ -48,6 +48,13 @@ public class Car {
     public boolean drive(int distance) {
         double fuelResourceAfterDriving= calculateAmountOfFuelAfterDriving(distance);
         return fuelResourceAfterDriving > 0;
+    }
+
+    public boolean resetOdometer(double odometer) {
+        odometer = 0;
+        if(odometer>0)
+            return false;
+        return true;
     }
 
     public String getColor() {

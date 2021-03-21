@@ -1,15 +1,22 @@
 package dziedzicpawel.lab1.tdd.car;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class CatTests {
+public class CarTests {
+
+    private Car car;
+
+    @BeforeEach
+    public void createCar() {
+        this.car = new Car("red", "Skoda Octavia", 5.4, 70);
+    }
 
     @Test
     public void shouldCreateCar() {
-        Car car = new Car("red", "Skoda Octavia", 5.4, 70);
 
         Assertions.assertEquals(car.getColor(), "red");
         Assertions.assertEquals(car.getMake(), "Skoda Octavia");
@@ -19,7 +26,6 @@ public class CatTests {
 
     @Test
     public void shouldHaveCorrectRefuel() {
-        Car car = new Car("red", "Skoda Octavia", 5.4, 70);
 
         boolean extraLitresOfFuel1 = car.refuel(100);
         boolean extraLitresOfFuel2 = car.refuel(-50);
@@ -31,7 +37,6 @@ public class CatTests {
     }
     @Test
     public void shouldHaveDrive() {
-        Car car = new Car("red", "Skoda Octavia", 5.4, 70);
 
         int distance1 = 100;
         int distance2 = 100000;
@@ -40,7 +45,6 @@ public class CatTests {
         boolean isPossible = car.drive(distance1);
         boolean isPossible2= car.drive(distance2);
         boolean isPossible3= car.drive(distance3);
-
 
         Assertions.assertTrue(isPossible);
         Assertions.assertEquals(901.2, car.calculateNewDailyOdometer(distance1), 1e-3);
@@ -51,9 +55,9 @@ public class CatTests {
         Assertions.assertEquals(3.8,car.calculateAmountOfFuelAfterDriving(distance3), 13-3);
         Assertions.assertEquals(101.2, car.calculateNewDailyOdometer(distance3), 1e-3);
     }
+
     @Test
     public void shouldResettingOdometer() {
-        Car car = new Car("red", "Skoda Octavia", 5.4, 70);
 
         boolean resetIsSuccessful= car.resetOdometer(car.getOdometer());
 
