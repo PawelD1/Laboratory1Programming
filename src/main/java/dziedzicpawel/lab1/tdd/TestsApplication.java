@@ -1,4 +1,4 @@
-package dziedzicpawel.lab1.tests;
+package dziedzicpawel.lab1.tdd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
